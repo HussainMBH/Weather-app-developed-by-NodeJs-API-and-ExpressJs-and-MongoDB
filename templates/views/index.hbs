@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Weather App</title>
+    <link rel="stylesheet" href="css/styles.css"/> <!-- static path for public folder is already set in app.js -->
+</head>
+<body>
+    <div class="main-content">
+        <header>Weather App</header>
+        <article class="widget">
+            <form id="weather-form" class="weatherLocation">
+                <input id="email-input" class="input-field" placeholder="Enter your email" type="email" required/>
+                <input id="city-input" class="input-field" placeholder="Enter city name" type="text" required/>
+                <button class="search-button" type="submit">Search</button>
+            </form>
+            <div class="icon-and-weatherInfo">
+                <div class="weatherIcon"><i></i></div>
+                <div class="weatherInfo">
+                    <div class="temperature"><span></span></div>
+                    <div class="weatherCondition"></div>
+                </div>
+            </div>
+            <div class="place"></div>
+            <div class="date"></div>
+        </article>
+    </div>
+    <script src="js/app.js"></script> <!-- absolute path -->
+</body>
+</html>
