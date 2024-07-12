@@ -9,20 +9,22 @@
         {{header}}
         <article class="widget">
             <form id="weather-form" class="weatherLocation">
-                <input id="email-input" class="input-field" placeholder="Enter your email" type="email"/>
-                <input id="city-input" class="input-field" placeholder="Enter city name" type="text"/>
+                <input id="email-input" class="input-field" name="email" placeholder="Enter your email" type="email" required/>
+                <input id="city-input" class="input-field" name="address" placeholder="Enter city name" type="text" required/>
                 <button class="search-button" type="submit">Search</button>
             </form>
-            <div class="icon-and-weatherInfo">
-                <div class="weatherIcon"><i></i></div>
-                <div class="weatherInfo">
-                    <div class="temperature"><span></span></div>
-                    <div class="weatherCondition"></div>
+            <div id="weather-results" style="display:none;">
+                <div class="icon-and-weatherInfo">
+                    <div class="weatherIcon"><i></i></div>
+                    <div class="weatherInfo">
+                        <div class="temperature" id="temperature"><span></span></div>
+                        <div class="weatherCondition" id="weatherCondition"></div>
+                    </div>
                 </div>
+                <div class="place" id="place"></div>
+                <div class="date" id="date"></div>
+                <div class="email-display" id="email-display"></div>
             </div>
-            <div class="place"></div>
-            <div class="date"></div>
-            <div class="email-display"></div> <!-- New div to display email -->
         </article>
     </div>
     <script src="js/app.js"></script> <!-- absolute path -->
