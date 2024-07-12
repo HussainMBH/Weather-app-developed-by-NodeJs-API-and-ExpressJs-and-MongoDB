@@ -1,16 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Weather App</title>
+    <title>{{title}}</title>
     <link rel="stylesheet" href="css/styles.css"/> <!-- static path for public folder is already set in app.js -->
 </head>
 <body>
     <div class="main-content">
-        <header>Weather App</header>
+        {{header}}
         <article class="widget">
             <form id="weather-form" class="weatherLocation">
-                <input id="email-input" class="input-field" placeholder="Enter your email" type="email" required/>
-                <input id="city-input" class="input-field" placeholder="Enter city name" type="text" required/>
+                <input id="email-input" class="input-field" placeholder="Enter your email" type="email"/>
+                <input id="city-input" class="input-field" placeholder="Enter city name" type="text"/>
                 <button class="search-button" type="submit">Search</button>
             </form>
             <div class="icon-and-weatherInfo">
@@ -22,6 +22,7 @@
             </div>
             <div class="place"></div>
             <div class="date"></div>
+            <div class="email-display"></div> <!-- New div to display email -->
         </article>
     </div>
     <script src="js/app.js"></script> <!-- absolute path -->

@@ -1,11 +1,13 @@
 var weatherApi = "/weather";
 const weatherForm = document.querySelector("#weather-form");
+const emailInput = document.querySelector("#email-input");
 const cityInput = document.querySelector("#city-input");
 const weatherIcon = document.querySelector(".weatherIcon i");
 const weatherCondition = document.querySelector(".weatherCondition");
 const tempElement = document.querySelector(".temperature span");
 const locationElement = document.querySelector(".place");
 const dateElement = document.querySelector(".date");
+const emailDisplay = document.querySelector(".email-display");
 
 const currentDate = new Date();
 const options = { month: "long" };
@@ -18,6 +20,7 @@ weatherForm.addEventListener("submit", (e) => {
     weatherIcon.className = "";
     tempElement.textContent = "";
     weatherCondition.textContent = "";
+    emailDisplay.textContent = emailInput.value; // Set the email display
 
     showData(cityInput.value.trim());
 });

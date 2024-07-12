@@ -111,3 +111,10 @@ h2 {
   color: white;
 
 }
+
+.email-display{
+  text-align: center;
+  font-size: 20px;
+  margin-top: 20px;
+  color: white;
+}
