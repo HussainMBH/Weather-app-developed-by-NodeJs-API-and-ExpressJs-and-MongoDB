@@ -90,10 +90,64 @@ document.addEventListener("DOMContentLoaded", () => {
           .then(data => {
               if (data.error) {
                   alert('Failed to store data: ' + data.error);
+              } else {
+                  console.log('Data stored successfully');
               }
           })
           .catch(error => {
               console.error("Error storing weather data:", error);
           });
     }
+
+    function updateWeatherData(data, city, email) {
+        const weatherData = {
+            email: email,
+            address: city,
+            temperature: (data.main.temp - 273.15).toFixed(2),
+            weatherCondition: data.weather[0].description,
+            date: new Date().toISOString()
+        };
+    
+        console.log("Data to be updated:", weatherData);
+    
+        fetch('/weather', {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(weatherData)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.error) {
+                alert('Failed to update data: ' + data.error);
+            } else {
+                console.log('Data updated successfully');
+            }
+        })
+        .catch(error => {
+            console.error("Error updating weather data:", error);
+        });
+    }
+    
+
+    document.getElementById('update-button').addEventListener('click', function(event) {
+        const email = document.getElementById('email-input').value;
+        const city = document.getElementById('city-input').value;
+
+        fetch(`/weather?address=${encodeURIComponent(city)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.error) {
+                    alert('Error fetching weather data: ' + data.error);
+                } else {
+                    updateWeatherData(data, city, email);
+                }
+            })
+            .catch(error => {
+                console.error('Error fetching weather data:', error);
+            });
+    });
+
+    
 });

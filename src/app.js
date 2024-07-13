@@ -81,6 +81,28 @@ app.post("/weather", (req, res) => {
     res.send({ success: "Data stored successfully" });
   });
 });
+app.put('/weather', (req, res) => {
+  const { email, address, temperature, weatherCondition, date } = req.body;
+  
+  db.collection('userdetails').findOneAndUpdate(
+    { email: email }, // Find document by email
+    { $set: { address, temperature, weatherCondition, date } }, // Update fields
+    { returnOriginal: false, upsert: true }, // Options: return updated document, create if not found
+    (err, result) => {
+      if (err) {
+        console.error('Error updating data:', err);
+        return res.status(500).json({ error: 'Failed to update data', details: err });
+      }
+      if (!result.value) {
+        return res.status(404).json({ error: 'No matching record found for update' });
+      }
+      res.json({ message: 'Data updated successfully', data: result.value });
+    }
+  );
+});
+
+
+
 
 app.get("*", (req, res) => {
   res.render("404", { title: "Page not found" });
