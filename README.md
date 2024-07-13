@@ -217,3 +217,9 @@ To deploy your Weather App on AWS, follow these steps using AWS services:
 ### 8. Security Best Practices
 - **IAM Roles:** Use IAM roles with least privilege principles for EC2 instances and other AWS services.
 - **Security Groups:** Regularly review and update security groups to restrict access to necessary ports.
+
+
+
+ChatGPT links : 
+1) = https://chatgpt.com/share/689b7d90-2b2c-4e43-b64d-389ac3229850
+2) = https://chatgpt.com/share/a02775ed-8185-4d6d-90b2-2566290a7283
